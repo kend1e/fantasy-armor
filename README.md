@@ -2,13 +2,17 @@
 
 A Minecraft mod with armor sets and effects for Forge, NeoForge, and Fabric.
 
-| Loader   | Minecraft                                |
-|----------|------------------------------------------|
-| Forge    | 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11 |
-| NeoForge | 1.21.1, 1.21.10, 1.21.11                 |
-| Fabric   | 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11 |
+Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/fantasy-armor) · [Modrinth](https://modrinth.com/mod/fantasy_armor).
 
-Project needs JDK 21 to run Gradle. Toolchains select Java 17 or 21 for each target.
+Requires [GeckoLib](https://modrinth.com/mod/geckolib) on every loader; Fabric also requires [Fabric API](https://modrinth.com/mod/fabric-api) and [Cloth Config](https://modrinth.com/mod/cloth-config).
+
+| Loader   | Minecraft                                                    |
+|----------|--------------------------------------------------------------|
+| Forge    | 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3 |
+| NeoForge | 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3                 |
+| Fabric   | 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3 |
+
+Build with JDK 25 and the shared [fantasy-build](https://github.com/kend1e/fantasy-build) repository checked out at `../fantasy-build`. Toolchains select Java 17, 21, or 25 for each target.
 
 ```bash
 # Build all platforms
