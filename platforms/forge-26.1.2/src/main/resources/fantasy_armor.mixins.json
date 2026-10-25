@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "net.kenddie.fantasyarmor.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "FARenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

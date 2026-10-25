@@ -1,0 +1,1 @@
+plugins { id("fantasy.platform") }

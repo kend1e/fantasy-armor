@@ -13,7 +13,7 @@ public final class DyeingTests {
             for (var piece : PIECES) {
                 ItemStack original = stack(set.getName() + "_" + piece.getName());
                 var armor = (FAArmorItem) original.getItem();
-                check(h, MinecraftAccess.dyeable(original), "Armor must belong to dyeable tag");
+                check(h, MinecraftAccess.dyeable(original), "Armor must support vanilla dyeing");
                 check(h, !armor.hasCustomColor(original), "New armor must not have custom color");
                 var dyed = MinecraftAccess.dye(h, original);
                 check(h, dyed.is(original.getItem()), "Dyeing must preserve armor identity");

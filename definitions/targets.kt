@@ -57,4 +57,25 @@ val targets = buildTargets(releaseVersion = "1.3") {
         geckolib()
         clothConfig()
     }
+    forge("26.1.2") { geckolib() }
+    neoforge("26.1.2") { geckolib() }
+    fabric("26.1.2") {
+        fabricApi()
+        geckolib()
+        clothConfig()
+    }
+    forge("26.2") { geckolib() }
+    neoforge("26.2") { geckolib() }
+    fabric("26.2") {
+        fabricApi()
+        geckolib()
+        clothConfig()
+    }
+    forge("26.3") { geckolib() }
+    neoforge("26.3") { geckolib() }
+    fabric("26.3") {
+        fabricApi()
+        geckolib()
+        clothConfig()
+    }
 }

@@ -6,8 +6,6 @@ import net.kenddie.fantasyarmor.config.FAConfig;
 import net.kenddie.fantasyarmor.config.FAArmorConfig;
 import net.kenddie.fantasyarmor.config.FAArmorEffectsConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.config.ConfigTracker;
-import net.minecraftforge.fml.config.ModConfig;
 
 final class ConfigAccess {
     static boolean modifiers() { return FAConfig.applyModifiers(); }
@@ -21,7 +19,7 @@ final class ConfigAccess {
     static boolean loaded() { return FAConfig.SPEC.isLoaded() && FAArmorConfig.SPEC.isLoaded() && FAArmorEffectsConfig.SPEC.isLoaded(); }
 
     static void withSettings(Runnable scenario) {
-        var bindings = ConfigTracker.INSTANCE.configSets().get(ModConfig.Type.SERVER).stream()
+        var bindings = ConfigRegistry.serverConfigs().stream()
                 .filter(config -> config.getSpec() == FAConfig.SPEC || config.getSpec() == FAArmorConfig.SPEC)
                 .map(config -> new Binding((ForgeConfigSpec) config.getSpec(), config.getConfigData()))
                 .toList();

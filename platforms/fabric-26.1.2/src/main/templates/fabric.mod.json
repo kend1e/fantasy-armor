@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "entrypoints": {
+    "main": [
+      "net.kenddie.fantasyarmor.FantasyArmor"
+    ]
+  },
+  "mixins": [
+    "fantasy_armor.mixins.json"
+  ]
+}

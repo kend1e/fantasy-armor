@@ -3,8 +3,6 @@ package net.kenddie.fantasyarmor.test;
 import net.kenddie.fantasyarmor.config.FAConfig;
 import net.kenddie.fantasyarmor.config.FAArmorConfig;
 import net.minecraft.gametest.framework.GameTestHelper;
-import net.minecraftforge.fml.config.ConfigTracker;
-import net.minecraftforge.fml.config.ModConfig;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +14,7 @@ public final class ConfigFixtureTests {
     public static void run(GameTestHelper helper) {
         boolean durability = ConfigAccess.durability();
         double armor = ConfigAccess.helmetArmor();
-        var files = ConfigTracker.INSTANCE.configSets().get(ModConfig.Type.SERVER).stream()
+        var files = ConfigRegistry.serverConfigs().stream()
                 .filter(config -> config.getSpec() == FAConfig.SPEC || config.getSpec() == FAArmorConfig.SPEC)
                 .map(config -> new Snapshot(config.getFullPath(), read(config.getFullPath())))
                 .toList();
