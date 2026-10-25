@@ -69,7 +69,7 @@
 				},
 				{
 					"name": "armorCape",
-					"parent": "bipedBody",
+					"parent": "armorBody",
 					"pivot": [0, 24, 2.6],
 					"rotation": [5, 0, 0],
 					"cubes": [
