@@ -29,6 +29,22 @@ Build with JDK 25 and the shared [fantasy-build](https://github.com/kend1e/fanta
 Result JARs go to `dist/`.
 `./gradlew clean` removes build outputs and `dist/`.
 
+
+Tests run unit checks and Minecraft server scenarios. Run both profiles before a release:
+
+```bash
+./gradlew test --no-parallel --max-workers=2
+./gradlew test -PtestProfile=configured --no-parallel --max-workers=2
+
+# Test one platform
+./gradlew :platforms:fabric-1.21.1:test --no-parallel --max-workers=2
+```
+
+The default profile checks default settings; `configured` checks modified settings.
+Success means `BUILD SUCCESSFUL` and `PASS` for every selected platform in the final summary.
+Server reports are in `platforms/<target>/build/reports/test/<profile>/results.xml`.
+Client rendering still needs a manual check.
+
 Content structure:
 
 - [definitions/armor.kt](definitions/armor.kt) - armor sets, attributes, effects, and recipe ingredients.
