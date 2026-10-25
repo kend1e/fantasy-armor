@@ -13,6 +13,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Moon Crystal")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Moonlight captured in a crystal. Awakens the power of ancient armor.")
 
         armor("eclipse_soldier", name = "Eclipse Soldier") {
             description = "§7The armor of an infantryman who fought for the triumph of the eclipse over the sun long ago. \nIt is said that beneath the boots of the legions thousands of unfortunates have found death."
@@ -144,6 +145,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "月の結晶")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "月光を閉じ込めた結晶。古の防具に眠る力を呼び覚ます。")
 
         armor("eclipse_soldier", name = "覆面兵士") {
             description = "§7太陽の勝利を掲げて戦った、かつての歩兵の鎧\n数千の不運な者たちが、軍団の足元で死を迎えたと言われている"
@@ -299,6 +301,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Лунный кристалл")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Лунный свет, заключённый в кристалл. Пробуждает силу древних доспехов.")
 
         armor("eclipse_soldier", name = "Солдата Затмения") {
             description = "§7Доспехи пехотинца, когда-то давно сражавшегося за торжество затмения над солнцем. \nКто-то говорит, что под сапогами легионов нашли смерть тысячи несчастных."
@@ -430,6 +433,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Місячний кристал")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Місячне світло, ув’язнене в кристалі. Пробуджує силу стародавніх обладунків.")
 
         armor("eclipse_soldier", name = "Солдата Затемнення") {
             description = "§7Броня піхотинця, який колись боровся за тріумф затемнення над сонцем. \nКажуть, що під черевиками легіонів знайшли смерть тисячі нещасних."
@@ -561,6 +565,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "奇幻铠甲")
         entry("item.${mod.id}.${moonCrystal.id}", "皎月水晶")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "封存月光的水晶。唤醒古老铠甲的力量。")
 
         armor("eclipse_soldier", name = "日蚀战士") {
             description = "§7很久以前是为日蚀战胜太阳的步兵的铠甲。\n据说，在军团的铁蹄下，成千上万的不幸者败亡。"
@@ -702,6 +707,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Ay Kristali")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Ay ışığını içinde hapseden bir kristal. Kadim zırhların gücünü uyandırır.")
 
         armor("eclipse_soldier", name = "Tutulma Askeri") {
             description = "§7Çok eski zamanlarda tutulmanın güneşe karşı zaferi uğruna savaşmış bir piyadenin zırhı.\nLejyonların çizmeleri altında binlerce talihsizin ölüme kavuştuğu söylenir."
@@ -849,6 +855,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "달의 수정")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "달빛을 품은 결정. 고대 갑옷의 힘을 깨운다.")
 
         armor("eclipse_soldier", name = "일식 병사") {
             description = "§7오래전 태양을 누르고 일식의 승리를 이루기 위해 싸웠던 보병의 갑옷.\n군단의 군홧발 아래 수천 명의 불운한 이들이 죽음을 맞았다고 한다."
@@ -980,6 +987,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Cristal Lunar")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Luz de luna encerrada en un cristal. Despierta el poder de las armaduras antiguas.")
 
         armor("eclipse_soldier", name = "del Soldado del Eclipse") {
             description = "§7La armadura de un infante que luchó hace mucho por el triunfo del eclipse sobre el sol.\nSe dice que miles de desdichados encontraron la muerte bajo las botas de las legiones."
@@ -1111,6 +1119,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Cristal Lunar")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Luar aprisionado em um cristal. Desperta o poder de armaduras antigas.")
 
         armor("eclipse_soldier", name = "do Soldado do Eclipse") {
             description = "§7A armadura de um soldado de infantaria que lutou, há muito tempo, pelo triunfo do eclipse sobre o sol.\nDizem que milhares de desafortunados encontraram a morte sob as botas das legiões."
@@ -1242,6 +1251,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Mondkristall")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Mondlicht, eingeschlossen in einem Kristall. Erweckt die Macht uralter Rüstungen.")
 
         armor("eclipse_soldier", name = "des Eklipsensoldaten") {
             description = "§7Die Rüstung eines Fußsoldaten, der vor langer Zeit für den Sieg der Finsternis über die Sonne kämpfte.\nMan sagt, unter den Stiefeln der Legionen hätten Tausende Unglückliche den Tod gefunden."
@@ -1373,6 +1383,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Cristal Lunaire")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "La lumière de la lune emprisonnée dans un cristal. Éveille le pouvoir des armures anciennes.")
 
         armor("eclipse_soldier", name = "du Soldat de l'Éclipse") {
             description = "§7L'armure d'un fantassin qui combattit jadis pour le triomphe de l'éclipse sur le soleil.\nOn raconte que des milliers de malheureux trouvèrent la mort sous les bottes des légions."
@@ -1504,6 +1515,7 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         )
         entry("itemGroup.fantasy_armor.fa_tab", "Fantasy Armor")
         entry("item.${mod.id}.${moonCrystal.id}", "Księżycowy Kryształ")
+        entry("item.${mod.id}.${moonCrystal.id}.tooltip", "Blask księżyca zamknięty w krysztale. Budzi moc pradawnych zbroi.")
 
         armor("eclipse_soldier", name = "Żołnierza Zaćmienia") {
             description = "§7Zbroja piechura, który dawno temu walczył o triumf zaćmienia nad słońcem.\nPowiadają, że pod butami legionów śmierć znalazły tysiące nieszczęśników."
