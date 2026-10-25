@@ -129,6 +129,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         armor("ornstein", name = "Ornstein") {
             description = "§7Golden plates shaped in the image of a lion.\nForged for the First Lord’s fiercest dragonslayer, the armor still hums with remnant lightning.\nThose who don the full set feel the echo of a spear strike, capable of piercing ancient stone scales."
         }
+
+        armor("dawncrest", name = "Dawncrest") {
+            description = "§7Forged for the sentinels who kept watch through the longest night, this armor bears the crest of the rising sun.\nIts faded gold remembers the first light over a silent battlefield.\nThose who wear it carry a promise: however deep the darkness, dawn will come."
+        }
     }
 
     language("ja_jp") {
@@ -280,6 +284,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         armor("ornstein", name = "オーンスタイン") {
             description = "§7獅子をかたどった黄金の鎧。\n最初の王に仕えた最も勇猛な竜狩りのために鍛えられ、今も雷の力を宿している。\n一式を身に纏う者は、古竜の石の鱗すら貫く槍の一撃、その残響を感じるだろう。"
         }
+
+        armor("dawncrest", name = "暁の紋章") {
+            description = "§7最も長い夜を見張り続けた番人たちのために鍛えられた、昇る太陽の紋章を宿す鎧。\n色あせた黄金は、静まり返った戦場に差した最初の光を覚えている。\nこれを纏う者は一つの約束を胸に抱く。どれほど闇が深くとも、夜明けは訪れる。"
+        }
     }
 
     language("ru_ru") {
@@ -407,6 +415,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         armor("ornstein", name = "Орнштейна") {
             description = "§7Золотые пластины, созданные в образе льва.\nКованные для яростнейшего драконоборца Первого Владыки, доспехи всё ещё гудят остаточной молнией.\nТот, кто облачится в полный комплект, ощущает отзвук копья, способного пронзить древнюю каменную чешую."
         }
+
+        armor("dawncrest", name = "Герба Рассвета") {
+            description = "§7Эта броня, выкованная для стражей, стоявших на дозоре в самую долгую ночь, несёт герб восходящего солнца.\nЕё потускневшее золото помнит первый свет над затихшим полем боя.\nТе, кто носит её, хранят обещание: как бы ни была глубока тьма, рассвет наступит."
+        }
     }
 
     language("uk_ua") {
@@ -533,6 +545,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
 
         armor("ornstein", name = "Орнштейну") {
             description = "§7Золоті пластини, створені в образі лева.\nКовані для найлютішого драконоборця Першого Владики, обладунки все ще гудуть залишковою блискавкою.\nТой, хто одягнеться в повний комплект, відчуває відгук списа, здатного пронизати стародавню кам'яну луску."
+        }
+
+        armor("dawncrest", name = "Герба Світанку") {
+            description = "§7Цю броню викували для вартових, які несли варту найдовшої ночі; на ній зображено герб сонця, що сходить.\nЇї потьмяніле золото пам’ятає перше світло над стихлим полем бою.\nТі, хто її носить, бережуть обіцянку: хоч якою глибокою буде темрява, світанок настане."
         }
     }
 
@@ -669,6 +685,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
 
         armor("ornstein", name = "翁斯坦") {
             description = "§7以雄狮为形锻造的黄金铠甲。\n它为初始之王麾下最勇猛的猎龙者而铸，至今仍萦绕着雷电的余威。\n穿齐整套铠甲的人，能感受到足以贯穿古龙石鳞的长枪一击所留下的回响。"
+        }
+
+        armor("dawncrest", name = "曙光纹章") {
+            description = "§7为在漫漫长夜中坚守的卫士锻造的铠甲，镌刻着旭日的纹章。\n黯淡的黄金仍记得寂静战场上洒落的第一缕晨光。\n身披此甲之人守护着一个承诺：无论黑暗多么深沉，黎明终将到来。"
         }
     }
 
@@ -814,6 +834,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
             leggings = "Ornstein Pantolonu"
             description = "§7Aslan suretinde şekillendirilmiş altın levhalar.\nİlk Lord’un en azılı ejderha avcısı için dövülen bu zırh, geride kalan yıldırımın gücüyle hâlâ titreşiyor.\nSetin tamamını kuşananlar, kadim taş pulları bile delip geçebilen bir mızrak darbesinin yankısını hisseder."
         }
+
+        armor("dawncrest", name = "Şafak Arması") {
+            description = "§7En uzun gece boyunca nöbet tutan muhafızlar için dövülen bu zırh, doğan güneşin armasını taşır.\nSolmuş altını, sessiz bir savaş alanına düşen ilk ışığı hatırlar.\nOnu kuşananlar bir söz taşır: Karanlık ne kadar derin olursa olsun, şafak sökecektir."
+        }
     }
 
     language("ko_kr") {
@@ -940,6 +964,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
 
         armor("ornstein", name = "오른슈타인") {
             description = "§7사자의 형상을 본뜬 황금 갑주.\n최초의 군주를 섬긴 가장 맹렬한 용 사냥꾼을 위해 벼려졌으며, 남아 있는 번개의 힘으로 지금도 낮게 울린다.\n한 벌을 모두 갖춰 입으면 고대의 돌비늘마저 꿰뚫을 창격의 메아리를 느낄 수 있다."
+        }
+
+        armor("dawncrest", name = "새벽 문장") {
+            description = "§7가장 긴 밤을 지새우며 경계하던 파수꾼들을 위해 벼려진 갑옷. 떠오르는 태양의 문장이 새겨져 있다.\n빛바랜 황금은 고요한 전장 위로 비치던 첫 햇살을 기억한다.\n이를 입는 자는 하나의 약속을 품는다. 어둠이 아무리 깊어도 새벽은 찾아온다는 것을."
         }
     }
 
@@ -1068,6 +1096,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         armor("ornstein", name = "de Ornstein") {
             description = "§7Placas doradas con la forma de un león.\nForjada para el más feroz matadragones del Primer Señor, esta armadura aún vibra con vestigios del rayo.\nQuienes visten el conjunto completo sienten el eco de una estocada capaz de atravesar antiguas escamas de piedra."
         }
+
+        armor("dawncrest", name = "del Emblema del Alba") {
+            description = "§7Forjada para los centinelas que velaron durante la noche más larga, esta armadura lleva el emblema del sol naciente.\nSu oro deslucido recuerda la primera luz sobre un campo de batalla en silencio.\nQuienes la visten llevan consigo una promesa: por profunda que sea la oscuridad, llegará el alba."
+        }
     }
 
     language("pt_br") {
@@ -1194,6 +1226,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
 
         armor("ornstein", name = "de Ornstein") {
             description = "§7Placas douradas moldadas à imagem de um leão.\nForjada para o mais feroz matador de dragões do Primeiro Senhor, esta armadura ainda vibra com resquícios de relâmpagos.\nQuem veste o conjunto completo sente o eco de uma estocada capaz de perfurar antigas escamas de pedra."
+        }
+
+        armor("dawncrest", name = "do Brasão da Aurora") {
+            description = "§7Forjada para os sentinelas que vigiaram durante a noite mais longa, esta armadura ostenta o brasão do sol nascente.\nSeu ouro desbotado lembra a primeira luz sobre um campo de batalha silencioso.\nQuem a veste carrega uma promessa: por mais profunda que seja a escuridão, a aurora chegará."
         }
     }
 
@@ -1322,6 +1358,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         armor("ornstein", name = "von Ornstein") {
             description = "§7Goldene Platten in der Gestalt eines Löwen.\nFür den wildesten Drachentöter des Ersten Fürsten geschmiedet, summt diese Rüstung noch immer von verbliebener Blitzkraft.\nWer das vollständige Set trägt, spürt das Echo eines Speerstoßes, der selbst uralte Steinschuppen durchdringen kann."
         }
+
+        armor("dawncrest", name = "des Morgenwappens") {
+            description = "§7Für die Wächter geschmiedet, die während der längsten Nacht Wache hielten, trägt diese Rüstung das Wappen der aufgehenden Sonne.\nIhr verblasstes Gold erinnert sich an das erste Licht über einem stillen Schlachtfeld.\nWer sie trägt, bewahrt ein Versprechen: Wie tief die Dunkelheit auch sein mag, der Morgen wird kommen."
+        }
     }
 
     language("fr_fr") {
@@ -1449,6 +1489,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
         armor("ornstein", name = "d'Ornstein") {
             description = "§7Des plaques dorées façonnées à l'image d'un lion.\nForgée pour le plus féroce tueur de dragons du Premier Seigneur, cette armure vibre encore des vestiges de la foudre.\nCeux qui portent l'ensemble complet ressentent l'écho d'un coup de lance capable de percer d'antiques écailles de pierre."
         }
+
+        armor("dawncrest", name = "de l'Emblème de l'Aube") {
+            description = "§7Forgée pour les sentinelles qui veillèrent durant la nuit la plus longue, cette armure porte l'emblème du soleil levant.\nSon or terni se souvient de la première lumière sur un champ de bataille silencieux.\nCeux qui la portent gardent une promesse : aussi profondes que soient les ténèbres, l'aube viendra."
+        }
     }
 
     language("pl_pl") {
@@ -1575,6 +1619,10 @@ val languages: TranslationCatalog = translations(namespace = mod.id) {
 
         armor("ornstein", name = "Ornsteina") {
             description = "§7Złote płyty ukształtowane na podobieństwo lwa.\nWykuta dla najzacieklejszego zabójcy smoków Pierwszego Władcy zbroja wciąż drży od resztek mocy błyskawic.\nNoszący cały zestaw czują echo pchnięcia włócznią zdolnego przebić pradawne kamienne łuski."
+        }
+
+        armor("dawncrest", name = "Herbu Świtu") {
+            description = "§7Wykuta dla strażników pełniących wartę podczas najdłuższej nocy zbroja nosi herb wschodzącego słońca.\nJej przygasłe złoto pamięta pierwsze światło nad ucichłym polem bitwy.\nCi, którzy ją noszą, strzegą obietnicy: choćby mrok był najgłębszy, świt nadejdzie."
         }
     }
 }

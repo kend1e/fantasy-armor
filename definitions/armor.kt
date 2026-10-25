@@ -560,4 +560,22 @@ val armor = armorCatalog(defaults = baseArmor, addition = "${mod.id}:${moonCryst
         effect("minecraft:resistance")
     }
 
+    armor("dawncrest") {
+        upgradeIngredient = "minecraft:sunflower"
+        helmet {
+            maxHealth = 2.0
+        }
+        chestplate {
+            maxHealth = 2.0
+            knockbackResistance = 0.2
+        }
+        leggings {
+            knockbackResistance = 0.2
+        }
+        boots {
+            movementSpeed = 0.03
+        }
+        effect("minecraft:regeneration")
+        effect("minecraft:fire_resistance")
+    }
 }
