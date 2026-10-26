@@ -17,7 +17,7 @@ val targets = buildTargets(releaseVersion = "1.3") {
     }
     fabric("1.20.1") {
         dataGeneration = true
-        fabricApi()
+        fabricApi("0.92.2+1.20.1")
         geckolib()
         clothConfig()
     }
