@@ -21,7 +21,10 @@ class FantasyPlatformPlugin : Plugin<Project> {
         val target = targets.single { it.path == path }
         configureMod(mod, target)
         pluginManager.apply("fantasy.build.${target.loader.id}")
-        configureModSources()
+        configureModSources(listOf(
+            "minecraft/${target.minecraft}/src/main/java",
+            "loaders/${target.loader.id}/src/main/java",
+        ))
         configureResources(target)
         configureArmorTests()
     }
