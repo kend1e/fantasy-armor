@@ -7,6 +7,9 @@ import net.kenddie.fantasyarmor.shared.armor.FAArmorSet;
 import net.kenddie.fantasyarmor.item.armor.FAArmorItem;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -47,6 +50,11 @@ public final class FAArmorItems {
 
             ARMOR_ITEMS.put(set, setPieces);
         }
+        FMLCommonSetupEvent.getBus(eventBus).addListener((FMLCommonSetupEvent event) -> event.enqueueWork(() -> {
+            var interactions = CauldronInteraction.WATER.map();
+            var wash = interactions.get(Items.LEATHER_CHESTPLATE);
+            ARMOR_ITEMS.values().forEach(pieces -> pieces.values().forEach(item -> interactions.put(item.get(), wash)));
+        }));
     }
 
     public static RegistryObject<Item> getArmorItem(FAArmorSet set, ArmorType type) {

@@ -43,5 +43,8 @@ final class MinecraftAccess {
         check(h, result.getDamageValue() == 17, "Crafted armor must expose preserved damage");
         check(h, result.get(DataComponents.DYED_COLOR).rgb() == 0x123456, "Smithing must preserve color");
     }
+    static net.minecraft.core.cauldron.CauldronInteraction cauldronInteraction(net.minecraft.world.item.ItemStack stack) {
+        return net.minecraft.core.cauldron.CauldronInteraction.WATER.map().get(stack.getItem());
+    }
     private MinecraftAccess() {}
 }

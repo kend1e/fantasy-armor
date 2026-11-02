@@ -10,6 +10,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.item.equipment.ArmorType;
 
 import java.util.ArrayList;
@@ -52,6 +54,7 @@ public final class FAArmorItems {
 
                 FAItems.ITEMS.add(registered);
                 setPieces.put(type, registered);
+                CauldronInteraction.WATER.map().put(registered, CauldronInteraction.WATER.map().get(Items.LEATHER_CHESTPLATE));
             }
 
             ARMOR_ITEMS.put(set, setPieces);

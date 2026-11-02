@@ -25,12 +25,33 @@ public final class DyeingTests {
                         "Color must survive save/load");
                 armor.setColor(loaded, 0x123456);
                 check(h, armor.getColor(loaded) == 0x123456, "Custom color accessor mismatch");
-                armor.clearColor(loaded);
+                loaded.setDamageValue(7);
+                washInCauldron(h, loaded);
+                check(h, loaded.is(original.getItem()) && loaded.getDamageValue() == 7,
+                        "Washing must preserve armor identity and damage");
                 check(h, !armor.hasCustomColor(loaded) && armor.getColor(loaded) == 0xA06540,
                         "Clearing color must restore default");
             }
         }
         h.succeed();
+    }
+
+    private static void washInCauldron(GameTestHelper h, ItemStack stack) {
+        var pos = h.absolutePos(new net.minecraft.core.BlockPos(1, 1, 1));
+        var level = h.getLevel();
+        var state = net.minecraft.world.level.block.Blocks.WATER_CAULDRON.defaultBlockState()
+                .setValue(net.minecraft.world.level.block.LayeredCauldronBlock.LEVEL, 3);
+        level.setBlockAndUpdate(pos, state);
+        var player = MinecraftAccess.player(h);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, stack);
+        var interaction = MinecraftAccess.cauldronInteraction(stack);
+        check(h, interaction != null, "Armor must have a registered cauldron interaction");
+        interaction.interact(state, level, pos, player, net.minecraft.world.InteractionHand.MAIN_HAND, stack);
+        var washedState = level.getBlockState(pos);
+        check(h, washedState.getValue(net.minecraft.world.level.block.LayeredCauldronBlock.LEVEL) == 2,
+                "Washing must consume one water level");
+        interaction.interact(washedState, level, pos, player, net.minecraft.world.InteractionHand.MAIN_HAND, stack);
+        check(h, level.getBlockState(pos).equals(washedState), "Uncolored armor must not consume water");
     }
 
     private DyeingTests() {}

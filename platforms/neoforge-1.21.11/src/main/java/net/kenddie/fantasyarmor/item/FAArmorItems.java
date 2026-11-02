@@ -5,6 +5,9 @@ import net.kenddie.fantasyarmor.shared.armor.FAArmorSet;
 import net.kenddie.fantasyarmor.item.armor.FAArmorItem;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -38,6 +41,11 @@ public final class FAArmorItems {
 
             ARMOR_ITEMS.put(set, setPieces);
         }
+        eventBus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(() -> {
+            var interactions = CauldronInteraction.WATER.map();
+            var wash = interactions.get(Items.LEATHER_CHESTPLATE);
+            ARMOR_ITEMS.values().forEach(pieces -> pieces.values().forEach(item -> interactions.put(item.get(), wash)));
+        }));
     }
 
     public static DeferredItem<Item> getArmorItem(FAArmorSet set, ArmorType type) {

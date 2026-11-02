@@ -9,5 +9,8 @@ final class MinecraftAccess extends NbtAccess {
     static CraftingContainer craftingContainer(int width, int height) {
         return new CraftingContainer(new TestMenu(), width, height);
     }
+    static net.minecraft.core.cauldron.CauldronInteraction cauldronInteraction(net.minecraft.world.item.ItemStack stack) {
+        return net.minecraft.core.cauldron.CauldronInteraction.WATER.get(stack.getItem());
+    }
     private MinecraftAccess() {}
 }
