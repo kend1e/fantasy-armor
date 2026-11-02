@@ -20,7 +20,8 @@ fun Project.configureArmorTests(): SourceSet {
         module = TestModule("${mod.id}_tests", "net.kenddie.fantasyarmor.test", "ArmorTests", "${mod.id}.test.report"),
         cases = armorTests,
         sourceDirectories = listOf("tests/common/java",
-            if (target.loader == Loader.FABRIC && target.minecraft == "1.19.4") "tests/fabric-1.19.4/java"
+            if (target.loader == Loader.FABRIC && target.minecraft == "1.19.2") "tests/fabric-1.19.2/java"
+            else if (target.loader == Loader.FABRIC && target.minecraft in setOf("1.18.2", "1.19.2", "1.19.3", "1.19.4")) "tests/fabric-1.19.4/java"
             else if (target.loader == Loader.FORGE && registration != TestRegistration.FORGE_FUNCTIONS)
                 "tests/mock-player/java" else "tests/server-player/java",
             "loaders/${target.loader.id}/src/test/java") + testSources.getValue(target.minecraft).map { "tests/minecraft/$it/java" },

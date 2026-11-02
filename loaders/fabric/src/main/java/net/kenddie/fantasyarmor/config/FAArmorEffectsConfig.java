@@ -32,9 +32,9 @@ public class FAArmorEffectsConfig implements ConfigData {
 
     public static Map<String, List<EffectEntry>> defaults() {
         Map<String, List<EffectEntry>> map = new HashMap<>();
-        for (var entry : FAEffectDefaults.load().entrySet()) {
+        for (Map.Entry<String, List<net.kenddie.fantasyarmor.shared.config.EffectEntry>> entry : FAEffectDefaults.load().entrySet()) {
             List<EffectEntry> local = new ArrayList<>();
-            for (var e : entry.getValue()) {
+            for (net.kenddie.fantasyarmor.shared.config.EffectEntry e : entry.getValue()) {
                 local.add(new EffectEntry(e.id(), e.duration(), e.amplifier()));
             }
             map.put(entry.getKey(), local);
@@ -46,14 +46,14 @@ public class FAArmorEffectsConfig implements ConfigData {
     public void validatePostLoad() {
         if (effects == null) effects = new HashMap<>();
         Map<String, List<EffectEntry>> def = defaults();
-        for (var e : def.entrySet()) {
+        for (Map.Entry<String, List<EffectEntry>> e : def.entrySet()) {
             effects.putIfAbsent(e.getKey(), e.getValue());
         }
     }
 
     public static List<net.kenddie.fantasyarmor.shared.config.EffectEntry> getEffectsFor(String armorSetName) {
-        var list = FAConfigs.getEffectsConfig().effects.get(armorSetName);
-        if (list == null) return List.of();
+        List<EffectEntry> list = FAConfigs.getEffectsConfig().effects.get(armorSetName);
+        if (list == null) return java.util.Collections.emptyList();
         List<net.kenddie.fantasyarmor.shared.config.EffectEntry> result = new ArrayList<>(list.size());
         for (EffectEntry entry : list) {
             if (entry != null) net.kenddie.fantasyarmor.shared.config.EffectEntry

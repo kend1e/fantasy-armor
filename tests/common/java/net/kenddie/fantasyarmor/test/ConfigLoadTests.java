@@ -14,7 +14,20 @@ import java.nio.charset.StandardCharsets;
 import static net.kenddie.fantasyarmor.test.TestSupport.*;
 
 public final class ConfigLoadTests {
-    record Expected(String id, boolean modifiers, boolean durability, boolean effects, double helmetArmor, List<EffectEntry> setEffects) {}
+    static final class Expected {
+        private String id;
+        private boolean modifiers;
+        private boolean durability;
+        private boolean effects;
+        private double helmetArmor;
+        private List<EffectEntry> setEffects;
+        String id() { return id; }
+        boolean modifiers() { return modifiers; }
+        boolean durability() { return durability; }
+        boolean effects() { return effects; }
+        double helmetArmor() { return helmetArmor; }
+        List<EffectEntry> setEffects() { return setEffects; }
+    }
 
     public static void run(GameTestHelper h) {
         var stream = ConfigLoadTests.class.getResourceAsStream("/armor_test_profile.json");

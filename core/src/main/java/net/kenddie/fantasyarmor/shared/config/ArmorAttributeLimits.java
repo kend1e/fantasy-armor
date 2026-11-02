@@ -4,7 +4,11 @@ package net.kenddie.fantasyarmor.shared.config;
 public final class ArmorAttributeLimits {
     private ArmorAttributeLimits() {}
 
-    public record Range(double min, double max) {
+    public static final class Range {
+        private final double min, max;
+        public Range(double min, double max) { this.min = min; this.max = max; }
+        public double min() { return min; }
+        public double max() { return max; }
         public double orDefault(Double value, double fallback) {
             return value != null && Double.isFinite(value) && value >= min && value <= max ? value : fallback;
         }

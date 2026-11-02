@@ -32,9 +32,9 @@ public final class FAArmorDefaults {
                 new InputStreamReader(is, StandardCharsets.UTF_8), type);
 
         Map<String, Map<String, FAArmorAttributes>> result = new LinkedHashMap<>();
-        for (var setEntry : raw.entrySet()) {
+        for (Map.Entry<String, Map<String, RawPiece>> setEntry : raw.entrySet()) {
             Map<String, FAArmorAttributes> pieces = new LinkedHashMap<>();
-            for (var pieceEntry : setEntry.getValue().entrySet()) {
+            for (Map.Entry<String, RawPiece> pieceEntry : setEntry.getValue().entrySet()) {
                 pieces.put(pieceEntry.getKey(), pieceEntry.getValue().toAttributes());
             }
             result.put(setEntry.getKey(), Collections.unmodifiableMap(pieces));
@@ -53,13 +53,13 @@ public final class FAArmorDefaults {
     }
 
     public static FAArmorAttributes fallback(String pieceName) {
-        return switch (pieceName) {
-            case "helmet" -> FAArmorAttributes.builder().armor(3).armorToughness(2).knockbackResistance(0.1).durability(440.0).build();
-            case "chestplate" -> FAArmorAttributes.builder().armor(8).armorToughness(2).knockbackResistance(0.1).durability(620.0).build();
-            case "leggings" -> FAArmorAttributes.builder().armor(6).armorToughness(2).knockbackResistance(0.1).durability(580.0).build();
-            case "boots" -> FAArmorAttributes.builder().armor(3).armorToughness(2).knockbackResistance(0.1).durability(500.0).build();
-            default -> FAArmorAttributes.builder().build();
-        };
+        switch (pieceName) {
+            case "helmet": return FAArmorAttributes.builder().armor(3).armorToughness(2).knockbackResistance(0.1).durability(440.0).build();
+            case "chestplate": return FAArmorAttributes.builder().armor(8).armorToughness(2).knockbackResistance(0.1).durability(620.0).build();
+            case "leggings": return FAArmorAttributes.builder().armor(6).armorToughness(2).knockbackResistance(0.1).durability(580.0).build();
+            case "boots": return FAArmorAttributes.builder().armor(3).armorToughness(2).knockbackResistance(0.1).durability(500.0).build();
+            default: return FAArmorAttributes.builder().build();
+        }
     }
 
     private static class RawPiece {

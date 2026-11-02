@@ -100,6 +100,12 @@ public class FAArmorItem extends DyeableArmorItem implements GeoItem {
     }
 
     @Override
+    public String getArmorTexture(ItemStack stack, net.minecraft.world.entity.Entity entity, EquipmentSlot slot, @Nullable String type) {
+        // GeckoLib selects the actual base and dyed layers; Forge still requests a texture for both passes.
+        return net.kenddie.fantasyarmor.shared.ModConstants.MOD_ID + ":" + armorSet.getTexturePath();
+    }
+
+    @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         if (slot != this.type.getSlot()) {
             return super.getAttributeModifiers(slot, stack);

@@ -3,6 +3,20 @@ package fantasy.definitions
 import fantasy.gradle.buildTargets
 
 val targets = buildTargets(releaseVersion = "1.3") {
+    forge("1.12.2") { geckolib() }
+    forge("1.15.2") { geckolib() }
+    forge("1.16.5") { geckolib() }
+    fabric("1.16.5") { fabricApi(); clothConfig(); geckolib() }
+    forge("1.18.2") { geckolib() }
+    fabric("1.18.2") { fabricApi(); clothConfig(); geckolib() }
+    forge("1.19.2") { geckolib() }
+    fabric("1.19.2") { fabricApi(); clothConfig(); geckolib() }
+    forge("1.19.3") { geckolib() }
+    fabric("1.19.3") {
+        fabricApi()
+        clothConfig()
+        geckolib()
+    }
     forge("1.19.4") {
         dataGeneration = true
         geckolib()

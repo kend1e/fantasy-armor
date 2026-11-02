@@ -12,7 +12,14 @@ import java.util.List;
 import static net.kenddie.fantasyarmor.test.TestSupport.*;
 
 public final class RecipeTests {
-    record ArmorRecipe(String id, String template, String addition) {}
+    static final class ArmorRecipe {
+        private String id;
+        private String template;
+        private String addition;
+        String id() { return id; }
+        String template() { return template; }
+        String addition() { return addition; }
+    }
 
     public static void run(GameTestHelper h) {
         var recipes = declarations();

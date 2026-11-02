@@ -44,8 +44,9 @@ public class FAConfig {
         SPEC = BUILDER.build();
     }
 
+    @SuppressWarnings("unchecked")
     private static <T> T value(ForgeConfigSpec.ConfigValue<T> setting) {
-        return SPEC.isLoaded() ? setting.get() : setting.getDefault();
+        return SPEC.isLoaded() ? setting.get() : (T) SPEC.getSpec().<ForgeConfigSpec.ValueSpec>get(setting.getPath()).getDefault();
     }
 
     public static boolean applyArmorEffects() { return value(APPLY_ARMOR_EFFECTS); }

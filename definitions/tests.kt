@@ -11,6 +11,7 @@ val armorTests = listOf(
     TestCase("stack_update", "StackUpdateTests", minecraft = setOf("1.21.1", "1.21.10", "1.21.11", "26.1.2", "26.2", "26.3")),
     TestCase("sets", "SetTests"),
     TestCase("effects", "EffectTests"),
+    TestCase("infinite_effects", "InfiniteEffectTests", minecraft = setOf("1.19.4", "1.20.1", "1.21.1", "1.21.10", "1.21.11", "26.1.2", "26.2", "26.3")),
     TestCase("configs", "ConfigTests"),
     TestCase("config_fixture", "ConfigFixtureTests", loaders = setOf(Loader.FORGE)),
     TestCase("config_load", "ConfigLoadTests"),
@@ -20,6 +21,9 @@ val armorTests = listOf(
 )
 
 val testSources = mapOf(
+    "1.18.2" to listOf("1.18.2"),
+    "1.19.2" to listOf("1.19.2"),
+    "1.19.3" to listOf("nbt", "1.19.3"),
     "1.19.4" to listOf("nbt", "crafting-container", "1.19.4"),
     "1.20.1" to listOf("nbt", "crafting-container", "1.20.1"),
     "1.21.1" to listOf("component-stacks", "1.21.1"),

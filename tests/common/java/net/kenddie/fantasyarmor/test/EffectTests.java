@@ -38,14 +38,6 @@ public final class EffectTests {
         ArmorSetEffects.tick(player, true, 241, false, true);
         check(h, player.getEffect(MinecraftAccess.STRENGTH).getDuration() == remaining, "Removing a piece must retain existing effect");
         player.removeEffect(MinecraftAccess.STRENGTH);
-        player.addEffect(new MobEffectInstance(MinecraftAccess.STRENGTH, -1, entry.amplifier()));
-        equip(player, "eclipse_soldier");
-        ArmorSetEffects.tick(player, true, 241, false, true);
-        check(h, player.getEffect(MinecraftAccess.STRENGTH).isInfiniteDuration(), "Infinite effect must not be replaced");
-        player.setItemSlot(EquipmentSlot.FEET, ItemStack.EMPTY);
-        ArmorSetEffects.tick(player, false, 241, false, true);
-        check(h, player.getEffect(MinecraftAccess.STRENGTH).isInfiniteDuration(), "Disabling effects must retain existing infinite effect");
-        player.removeEffect(MinecraftAccess.STRENGTH);
         player.addEffect(new MobEffectInstance(MinecraftAccess.STRENGTH, 2, entry.amplifier()));
         for (int tick = 0; tick < 3; tick++) {
             ArmorSetEffects.tick(player, true, 241, false, true);

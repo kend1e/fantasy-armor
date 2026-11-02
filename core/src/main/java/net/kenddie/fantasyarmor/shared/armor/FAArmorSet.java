@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /** Immutable content identity, independent of Minecraft registries and game configuration. */
 public final class FAArmorSet {
@@ -18,23 +17,23 @@ public final class FAArmorSet {
 
     private FAArmorSet(String id, Map<String, FAArmorAttributes> defaults, List<EffectEntry> effects) {
         this.id = id;
-        this.defaults = Map.copyOf(defaults);
-        this.effects = List.copyOf(effects);
+        this.defaults = Collections.unmodifiableMap(new LinkedHashMap<>(defaults));
+        this.effects = Collections.unmodifiableList(new java.util.ArrayList<>(effects));
     }
 
     private static final class Catalog {
         private static final Map<String, FAArmorSet> BY_ID = load();
-        private static final List<FAArmorSet> VALUES = List.copyOf(BY_ID.values());
+        private static final List<FAArmorSet> VALUES = Collections.unmodifiableList(new java.util.ArrayList<>(BY_ID.values()));
 
         private static Map<String, FAArmorSet> load() {
-            var attributes = FAArmorDefaults.load();
-            var effects = FAEffectDefaults.load();
+            Map<String, Map<String, FAArmorAttributes>> attributes = FAArmorDefaults.load();
+            Map<String, List<EffectEntry>> effects = FAEffectDefaults.load();
             if (!attributes.keySet().equals(effects.keySet())) {
                 throw new IllegalStateException("Armor and effect definitions contain different set IDs");
             }
             Map<String, FAArmorSet> sets = new LinkedHashMap<>();
             attributes.forEach((id, pieces) -> {
-                if (!id.matches("[a-z0-9_]+") || !pieces.keySet().equals(Set.of("helmet", "chestplate", "leggings", "boots"))) {
+                if (!id.matches("[a-z0-9_]+") || !pieces.keySet().equals(new java.util.HashSet<>(java.util.Arrays.asList("helmet", "chestplate", "leggings", "boots")))) {
                     throw new IllegalStateException("Invalid armor definition: " + id);
                 }
                 sets.put(id, new FAArmorSet(id, pieces, effects.get(id)));
@@ -59,7 +58,7 @@ public final class FAArmorSet {
     public String getOverlayPath() { return "textures/armor/" + id + "_armor_overlay.png"; }
 
     @Override public boolean equals(Object other) {
-        return other instanceof FAArmorSet set && id.equals(set.id);
+        return other instanceof FAArmorSet && id.equals(((FAArmorSet) other).id);
     }
     @Override public int hashCode() { return id.hashCode(); }
     @Override public String toString() { return id; }

@@ -8,11 +8,11 @@ Requires [GeckoLib](https://modrinth.com/mod/geckolib) on every loader; Fabric a
 
 | Loader   | Minecraft                                                    |
 |----------|--------------------------------------------------------------|
-| Forge    | 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3 |
+| Forge    | 1.12.2, 1.15.2, 1.16.5, 1.18.2, 1.19.2, 1.19.3, 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3 |
 | NeoForge | 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3                 |
-| Fabric   | 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3 |
+| Fabric   | 1.16.5, 1.18.2, 1.19.2, 1.19.3, 1.19.4, 1.20.1, 1.21.1, 1.21.10, 1.21.11, 26.1.2, 26.2, 26.3 |
 
-Build with JDK 25 and the shared [fantasy-build](https://github.com/kend1e/fantasy-build) repository checked out at `../fantasy-build`. Toolchains select Java 17, 21, or 25 for each target.
+Build with JDK 25 and the shared [fantasy-build](https://github.com/kend1e/fantasy-build) repository checked out at `../fantasy-build`. Toolchains select Java 8, 17, 21, or 25 for each target.
 
 ```bash
 # Build all platforms
@@ -43,7 +43,10 @@ Tests run unit checks and Minecraft server scenarios. Run both profiles before a
 The default profile checks default settings; `configured` checks modified settings.
 Success means `BUILD SUCCESSFUL` and `PASS` for every selected platform in the final summary.
 Server reports are in `platforms/<target>/build/reports/test/<profile>/results.xml`.
-Client rendering still needs a manual check.
+Client rendering still needs a manual check. Minecraft 1.12.2–1.16.5 has no native GameTest runner; verify those targets with `runClient` and `runServer`.
+
+Forge 1.12.2 uses `config/fantasy_armor.cfg`; gameplay settings are synchronized from the server. Effect icons use vanilla behavior on that version. Before 1.19.4, effect duration `-1` is represented by the maximum positive duration supported by vanilla.
+Before 1.16, armor recipes use diamond armor. Before 1.17, moon crystal uses eight ink sacs around a diamond.
 
 Content structure:
 

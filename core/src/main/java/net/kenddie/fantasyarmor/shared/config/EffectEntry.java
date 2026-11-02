@@ -3,10 +3,30 @@ package net.kenddie.fantasyarmor.shared.config;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-public record EffectEntry(String id, int duration, int amplifier) {
+public final class EffectEntry {
+    private final String id;
+    private final int duration;
+    private final int amplifier;
+
+    public String id() { return id; }
+    public int duration() { return duration; }
+    public int amplifier() { return amplifier; }
+
+    @Override public boolean equals(Object other) {
+        if (this == other) return true;
+        if (!(other instanceof EffectEntry)) return false;
+        EffectEntry that = (EffectEntry) other;
+        return duration == that.duration && amplifier == that.amplifier && id.equals(that.id);
+    }
+
+    @Override public int hashCode() { return java.util.Objects.hash(id, duration, amplifier); }
+
     private static final Pattern ID = Pattern.compile("[a-z0-9_.-]+:[a-z0-9/._-]+");
 
-    public EffectEntry {
+    public EffectEntry(String id, int duration, int amplifier) {
+        this.id = id;
+        this.duration = duration;
+        this.amplifier = amplifier;
         if (id == null || !ID.matcher(id).matches()) {
             throw new IllegalArgumentException("Invalid effect identifier: " + id);
         }
@@ -20,8 +40,8 @@ public record EffectEntry(String id, int duration, int amplifier) {
 
     /** Config syntax is independent of Minecraft's version-specific registry API. */
     public static Optional<EffectEntry> parse(Object value) {
-        if (!(value instanceof String text)) return Optional.empty();
-        var parts = text.split(",", -1);
+        if (!(value instanceof String)) return Optional.empty();
+        String[] parts = ((String) value).split(",", -1);
         if (parts.length != 3) return Optional.empty();
         try {
             return validated(parts[0], Integer.parseInt(parts[1].trim()), Integer.parseInt(parts[2].trim()));

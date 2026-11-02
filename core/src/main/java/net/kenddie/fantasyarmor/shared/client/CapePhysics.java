@@ -2,7 +2,17 @@ package net.kenddie.fantasyarmor.shared.client;
 
 public final class CapePhysics {
 
-    public record CapeRotation(float rotX, float rotY, float rotZ) {}
+    public static final class CapeRotation {
+        private final float rotX, rotY, rotZ;
+        public CapeRotation(float rotX, float rotY, float rotZ) {
+            this.rotX = rotX;
+            this.rotY = rotY;
+            this.rotZ = rotZ;
+        }
+        public float rotX() { return rotX; }
+        public float rotY() { return rotY; }
+        public float rotZ() { return rotZ; }
+    }
 
     /**
      * Compute cape/braid bone rotation from pre-computed motion values.

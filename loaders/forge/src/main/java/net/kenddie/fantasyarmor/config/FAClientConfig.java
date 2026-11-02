@@ -9,7 +9,7 @@ public final class FAClientConfig {
     public static final ForgeConfigSpec.BooleanValue EPIC_FIGHT_NOT_STATIC_CAPES;
 
     static {
-        var builder = new ForgeConfigSpec.Builder();
+        ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         SHOW_DESCRIPTIONS = builder.define("showDescriptions", true);
         SHOW_CAPES = builder.define("showCapes", true);
         EPIC_FIGHT_NOT_STATIC_CAPES = builder.define("epicFightNotStaticCapes", false);
@@ -17,7 +17,7 @@ public final class FAClientConfig {
     }
 
     private static boolean value(ForgeConfigSpec.BooleanValue setting) {
-        return SPEC.isLoaded() ? setting.get() : setting.getDefault();
+        return SPEC.isLoaded() ? setting.get() : (Boolean) SPEC.getSpec().<ForgeConfigSpec.ValueSpec>get(setting.getPath()).getDefault();
     }
 
     public static boolean showDescriptions() { return value(SHOW_DESCRIPTIONS); }

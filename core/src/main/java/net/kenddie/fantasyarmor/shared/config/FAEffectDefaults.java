@@ -32,10 +32,10 @@ public final class FAEffectDefaults {
                 new InputStreamReader(is, StandardCharsets.UTF_8), type);
 
         Map<String, List<EffectEntry>> result = new LinkedHashMap<>();
-        for (var entry : raw.entrySet()) {
+        for (Map.Entry<String, List<RawEffect>> entry : raw.entrySet()) {
             List<EffectEntry> effects = entry.getValue().stream()
                     .map(r -> new EffectEntry(r.id, r.duration, r.amplifier))
-                    .toList();
+                    .collect(java.util.stream.Collectors.toList());
             result.put(entry.getKey(), Collections.unmodifiableList(effects));
         }
 

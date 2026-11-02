@@ -21,17 +21,18 @@ public class FAArmorEffectsConfig {
     private static Map<FAArmorSet, List<String>> buildDefaultEffects() {
         Map<FAArmorSet, List<String>> result = new HashMap<>();
         for (FAArmorSet set : FAArmorSet.values()) {
-            var entries = FAEffectDefaults.get(set.getName());
+            List<EffectEntry> entries = FAEffectDefaults.get(set.getName());
             if (!entries.isEmpty()) {
                 result.put(set, entries.stream()
                     .map(EffectEntry::toConfigValue)
-                    .toList());
+                    .collect(java.util.stream.Collectors.toList()));
             }
         }
-        return Map.copyOf(result);
+        return Collections.unmodifiableMap(result);
     }
 
     private final ForgeConfigSpec.ConfigValue<List<? extends String>> effectsList;
+    private final List<String> defaults;
 
     static {
         BUILDER.push("Armor Effects");
@@ -52,13 +53,14 @@ public class FAArmorEffectsConfig {
     }
 
     public FAArmorEffectsConfig(ForgeConfigSpec.Builder builder, List<String> defaultEffects) {
-        effectsList = builder.worldRestart().defineListAllowEmpty(
-                List.of("effects"), () -> defaultEffects, EffectEntry::isValidConfigValue);
+        defaults = defaultEffects;
+        effectsList = builder.worldRestart().define("effects", defaultEffects,
+                value -> value instanceof List && ((List<?>) value).stream().allMatch(EffectEntry::isValidConfigValue));
     }
 
     public List<EffectEntry> getEffects() {
         List<EffectEntry> result = new ArrayList<>();
-        for (String entry : SPEC.isLoaded() ? effectsList.get() : effectsList.getDefault()) {
+        for (String entry : SPEC.isLoaded() ? effectsList.get() : defaults) {
             EffectEntry.parse(entry).ifPresent(result::add);
         }
         return result;

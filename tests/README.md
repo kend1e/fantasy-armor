@@ -1,6 +1,6 @@
 # Server tests
 
-Run with JDK 21:
+Run with JDK 25:
 
 ```sh
 ./gradlew test                              # all targets, default config
@@ -18,6 +18,6 @@ and register it in `definitions/tests.kt`. Shared tests go in `tests/common/java
 Minecraft adapters in `tests/minecraft`, loader adapters in `loaders/<loader>/src/test`.
 Use the `minecraft` and `loaders` selectors for tests that apply only to specific targets.
 
-New targets from `definitions/targets.kt` join `test` automatically.
+Targets with a native GameTest runner join `test` automatically.
 For a new Minecraft version, verify its profile in Fantasy Build first, then add
 the mod’s source adapters to `definitions/tests.kt`.
