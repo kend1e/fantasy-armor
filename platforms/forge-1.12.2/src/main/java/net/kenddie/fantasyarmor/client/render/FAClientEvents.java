@@ -13,7 +13,8 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -48,12 +49,13 @@ public final class FAClientEvents {
             }
         }
     }
-    @SubscribeEvent public static void before(RenderPlayerEvent.Pre event) { arms(event, false); }
-    @SubscribeEvent public static void after(RenderPlayerEvent.Post event) { arms(event, true); }
-    private static void arms(RenderPlayerEvent event, boolean visible) {
-        Item chest = event.getEntityPlayer().getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
+    @SubscribeEvent public static void before(RenderLivingEvent.Pre event) { arms(event, false); }
+    @SubscribeEvent public static void after(RenderLivingEvent.Post event) { arms(event, true); }
+    private static void arms(RenderLivingEvent event, boolean visible) {
+        if (!(event.getRenderer() instanceof RenderPlayer)) return;
+        Item chest = event.getEntity().getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
         if (!(chest instanceof FAArmorItem)) return;
-        ModelPlayer model = event.getRenderer().getMainModel();
+        ModelPlayer model = (ModelPlayer) event.getRenderer().getMainModel();
         model.bipedRightArm.showModel = visible;
         model.bipedLeftArm.showModel = visible;
         model.bipedRightArmwear.showModel = visible;

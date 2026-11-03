@@ -5,7 +5,7 @@ import fantasy.gradle.buildTargets
 private const val PATCH_RELEASE = "1.3.1"
 
 val targets = buildTargets(releaseVersion = "1.3") {
-    forge("1.12.2") { geckolib() }
+    forge("1.12.2", version = "14.23.5.2859") { releaseVersion = "1.3.2"; geckolib() }
     forge("1.15.2") { geckolib() }
     forge("1.16.5") { geckolib() }
     fabric("1.16.5") { fabricApi(); clothConfig(); geckolib() }

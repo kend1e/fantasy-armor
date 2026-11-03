@@ -85,12 +85,14 @@ public final class FAArmorRenderer extends GeoArmorRenderer<FAArmorItem> {
             default: break;
         }
         if (name.equals("armorCape") || name.equals("armorCapeEpicFight")) {
-            bone.setHidden(slot != EntityEquipmentSlot.CHEST || !FAConfig.showCapes || name.equals("armorCapeEpicFight"));
+            boolean hidden = slot != EntityEquipmentSlot.CHEST || !FAConfig.showCapes || name.equals("armorCapeEpicFight");
+            bone.setHidden(hidden, hidden);
             if (name.equals("armorCape")) {
                 applyCapeRotation(bone, partialTick);
-                bone.setPositionX(bipedBody.rotationPointX);
-                bone.setPositionY(wearer.isSneaking() ? bipedBody.rotationPointY - 3.5f : bipedBody.rotationPointY);
-                bone.setPositionZ(bipedBody.rotationPointZ);
+                // The cape inherits its attachment point from armorBody.
+                bone.setPositionX(0);
+                bone.setPositionY(0);
+                bone.setPositionZ(0);
             }
         } else if (name.equals("armorBraid")) {
             bone.setHidden(slot != EntityEquipmentSlot.HEAD);
