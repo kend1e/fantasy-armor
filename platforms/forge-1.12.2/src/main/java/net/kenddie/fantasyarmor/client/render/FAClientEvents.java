@@ -6,17 +6,18 @@ import net.kenddie.fantasyarmor.item.armor.FAArmorItem;
 import net.kenddie.fantasyarmor.shared.ModConstants;
 import net.kenddie.fantasyarmor.shared.armor.FAArmorSet;
 import net.kenddie.fantasyarmor.shared.content.MaterialCatalog;
-import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
@@ -49,17 +50,16 @@ public final class FAClientEvents {
             }
         }
     }
-    @SubscribeEvent public static void before(RenderLivingEvent.Pre event) { arms(event, false); }
-    @SubscribeEvent public static void after(RenderLivingEvent.Post event) { arms(event, true); }
-    private static void arms(RenderLivingEvent event, boolean visible) {
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void before(RenderLivingEvent.Pre<?> event) {
         if (!(event.getRenderer() instanceof RenderPlayer)) return;
         Item chest = event.getEntity().getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem();
         if (!(chest instanceof FAArmorItem)) return;
-        ModelPlayer model = (ModelPlayer) event.getRenderer().getMainModel();
-        model.bipedRightArm.showModel = visible;
-        model.bipedLeftArm.showModel = visible;
-        model.bipedRightArmwear.showModel = visible;
-        model.bipedLeftArmwear.showModel = visible;
+        FAArmVisibilityLayer.hideArms((RenderPlayer) event.getRenderer());
+    }
+    @SubscribeEvent
+    public static void after(RenderPlayerEvent.Post event) {
+        FAArmVisibilityLayer.restoreArms(event.getRenderer());
     }
     private FAClientEvents() {}
 }
